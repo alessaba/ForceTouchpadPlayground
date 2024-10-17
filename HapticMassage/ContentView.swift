@@ -7,16 +7,51 @@
 
 import SwiftUI
 
+func pattern(for intensity: Double) -> Int {
+	// 8 valid pattern values are 0x1-0x6 and 0x0f-0x10
+	switch intensity {
+	case 0:
+		return 15
+	case 3:
+		return 6
+	default:
+		return Int(intensity)
+	}
+}
+
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
+	@State var speed = 20.0
+	@State var intensity = 1.5
+	@State var hovering: Bool = false
+	
+	var body: some View {
+		VStack{
+			HStack {
+				Slider(value: $speed, in: 10...500){
+					Text("Speed")
+				}.tint((speed > 75) ? .red : .green )
+				
+				Slider(value: $intensity, in: 0...3){
+					Text("Intensity")
+				}.tint((intensity > 2) ? .red : .green )
+			}
+			.padding()
+			ZStack{
+				Rectangle().fill(.gray)
+					.onHover{_ in
+						hovering.toggle()
+						Timer.scheduledTimer(withTimeInterval: TimeInterval(1/speed), repeats: true){ _ in
+								if hovering{
+									let cid = CGSMainConnectionID()
+									CGSActuateDeviceWithPattern(cid, 0, Int32(pattern(for: intensity)), 0);
+							}
+						}
+					}
+				Text("Place your fingers here to feel the massage").foregroundStyle(.ultraThickMaterial).opacity(hovering ? 0 : 1)
+					
+				}
+		}.frame(width: 500, height: 400)
+	}
 }
 
 #Preview {

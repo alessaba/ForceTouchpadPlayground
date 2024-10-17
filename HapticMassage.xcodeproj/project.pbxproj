@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0B0D83332CC11B56005F3514 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B0D83322CC11B56005F3514 /* CoreGraphics.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		0B0D831E2CC11273005F3514 /* HapticMassage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HapticMassage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B0D83322CC11B56005F3514 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0D83332CC11B56005F3514 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +39,7 @@
 			isa = PBXGroup;
 			children = (
 				0B0D83202CC11273005F3514 /* HapticMassage */,
+				0B0D83312CC11B55005F3514 /* Frameworks */,
 				0B0D831F2CC11273005F3514 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +50,14 @@
 				0B0D831E2CC11273005F3514 /* HapticMassage.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0B0D83312CC11B55005F3514 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0B0D83322CC11B56005F3514 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +281,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = saba.alessandro.FingerMassage.HapticMassage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/filippoclaudi/Developer/HapticMassage/HapticMassage/CGMassage.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -293,6 +309,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = saba.alessandro.FingerMassage.HapticMassage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/filippoclaudi/Developer/HapticMassage/HapticMassage/CGMassage.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
