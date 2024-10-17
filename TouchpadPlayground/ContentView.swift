@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ContentView : View {
 	var body: some View {
+		
 		TabView{
-			HapticMassage().tabItem{ Text("Massage") }
-			ForceGauge().tabItem{ Text("Force Gauge") }
-			TouchCanvas().tabItem{ Text("Touch Position") }
+			HapticMassage().tabItem{Text("􀞉 Massage")}
+			ForceGauge().tabItem{ Text("􂚛 Force") }
+			TouchCanvas().tabItem{ Text("􀬁 Position") }
 		}
 	}
 }
