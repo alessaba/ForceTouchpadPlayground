@@ -11,14 +11,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B0D831E2CC11273005F3514 /* HapticMassage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HapticMassage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B0D831E2CC11273005F3514 /* TouchpadPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TouchpadPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B0D83322CC11B56005F3514 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		0B0D83202CC11273005F3514 /* HapticMassage */ = {
+		0B0D83202CC11273005F3514 /* TouchpadPlayground */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = HapticMassage;
+			path = TouchpadPlayground;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -38,7 +38,7 @@
 		0B0D83152CC11273005F3514 = {
 			isa = PBXGroup;
 			children = (
-				0B0D83202CC11273005F3514 /* HapticMassage */,
+				0B0D83202CC11273005F3514 /* TouchpadPlayground */,
 				0B0D83312CC11B55005F3514 /* Frameworks */,
 				0B0D831F2CC11273005F3514 /* Products */,
 			);
@@ -47,7 +47,7 @@
 		0B0D831F2CC11273005F3514 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0B0D831E2CC11273005F3514 /* HapticMassage.app */,
+				0B0D831E2CC11273005F3514 /* TouchpadPlayground.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,9 +63,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0B0D831D2CC11273005F3514 /* HapticMassage */ = {
+		0B0D831D2CC11273005F3514 /* TouchpadPlayground */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0B0D832D2CC11275005F3514 /* Build configuration list for PBXNativeTarget "HapticMassage" */;
+			buildConfigurationList = 0B0D832D2CC11275005F3514 /* Build configuration list for PBXNativeTarget "TouchpadPlayground" */;
 			buildPhases = (
 				0B0D831A2CC11273005F3514 /* Sources */,
 				0B0D831B2CC11273005F3514 /* Frameworks */,
@@ -76,13 +76,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				0B0D83202CC11273005F3514 /* HapticMassage */,
+				0B0D83202CC11273005F3514 /* TouchpadPlayground */,
 			);
-			name = HapticMassage;
+			name = TouchpadPlayground;
 			packageProductDependencies = (
 			);
 			productName = HapticMassage;
-			productReference = 0B0D831E2CC11273005F3514 /* HapticMassage.app */;
+			productReference = 0B0D831E2CC11273005F3514 /* TouchpadPlayground.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +100,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0B0D83192CC11273005F3514 /* Build configuration list for PBXProject "HapticMassage" */;
+			buildConfigurationList = 0B0D83192CC11273005F3514 /* Build configuration list for PBXProject "TouchpadPlayground" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -114,7 +114,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0B0D831D2CC11273005F3514 /* HapticMassage */,
+				0B0D831D2CC11273005F3514 /* TouchpadPlayground */,
 			);
 		};
 /* End PBXProject section */
@@ -263,16 +263,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = HapticMassage/HapticMassage.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TouchpadPlayground/TouchpadPlayground.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HapticMassage/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"TouchpadPlayground/Preview Content\"";
 				DEVELOPMENT_TEAM = 974TR9G2UN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = HapticMassage;
+				INFOPLIST_KEY_CFBundleDisplayName = "Touchpad Playground";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -281,10 +281,10 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = saba.alessandro.HapticMassage;
+				PRODUCT_BUNDLE_IDENTIFIER = saba.alessandro.TPPlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/filippoclaudi/Developer/HapticMassage/HapticMassage/CGMassage.h;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/filippoclaudi/Developer/TouchpadPlayground/TouchpadPlayground/CGMassage.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -294,16 +294,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = HapticMassage/HapticMassage.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TouchpadPlayground/TouchpadPlayground.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"HapticMassage/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"TouchpadPlayground/Preview Content\"";
 				DEVELOPMENT_TEAM = 974TR9G2UN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = HapticMassage;
+				INFOPLIST_KEY_CFBundleDisplayName = "Touchpad Playground";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -312,10 +312,10 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = saba.alessandro.HapticMassage;
+				PRODUCT_BUNDLE_IDENTIFIER = saba.alessandro.TPPlayground;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/filippoclaudi/Developer/HapticMassage/HapticMassage/CGMassage.h;
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/filippoclaudi/Developer/TouchpadPlayground/TouchpadPlayground/CGMassage.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -323,7 +323,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0B0D83192CC11273005F3514 /* Build configuration list for PBXProject "HapticMassage" */ = {
+		0B0D83192CC11273005F3514 /* Build configuration list for PBXProject "TouchpadPlayground" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0B0D832B2CC11275005F3514 /* Debug */,
@@ -332,7 +332,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0B0D832D2CC11275005F3514 /* Build configuration list for PBXNativeTarget "HapticMassage" */ = {
+		0B0D832D2CC11275005F3514 /* Build configuration list for PBXNativeTarget "TouchpadPlayground" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0B0D832E2CC11275005F3514 /* Debug */,

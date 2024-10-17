@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct HapticMassageApp: App {
+struct TouchpadPlayground: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
