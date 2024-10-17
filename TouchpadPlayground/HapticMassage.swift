@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MassageView.swift
 //  HapticMassage
 //
 //  Created by Alessandro Saba on 17/10/24.
@@ -19,7 +19,7 @@ func pattern(for intensity: Double) -> Int {
 	}
 }
 
-struct ContentView: View {
+struct HapticMassage: View {
 	@State var speed = 20.0
 	@State var intensity = 1.5
 	@State var hovering: Bool = false
@@ -41,19 +41,15 @@ struct ContentView: View {
 					.onHover{_ in
 						hovering.toggle()
 						Timer.scheduledTimer(withTimeInterval: TimeInterval(1/speed), repeats: true){ _ in
-								if hovering {
-									let cid = CGSMainConnectionID()
-									CGSActuateDeviceWithPattern(cid, 0, Int32(pattern(for: intensity)), 0);
+							if hovering {
+								let cid = CGSMainConnectionID()
+								CGSActuateDeviceWithPattern(cid, 0, Int32(pattern(for: intensity)), 0);
 							}
 						}
 					}
 				Text("Place your fingers here to feel the massage").foregroundStyle(.ultraThickMaterial).opacity(hovering ? 0 : 1)
-					
-				}
+				
+			}
 		}.frame(width: 500, height: 400)
 	}
-}
-
-#Preview {
-    ContentView()
 }
