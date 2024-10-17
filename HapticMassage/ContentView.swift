@@ -41,7 +41,7 @@ struct ContentView: View {
 					.onHover{_ in
 						hovering.toggle()
 						Timer.scheduledTimer(withTimeInterval: TimeInterval(1/speed), repeats: true){ _ in
-								if hovering{
+								if hovering {
 									let cid = CGSMainConnectionID()
 									CGSActuateDeviceWithPattern(cid, 0, Int32(pattern(for: intensity)), 0);
 							}
