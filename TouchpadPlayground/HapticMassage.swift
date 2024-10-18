@@ -30,15 +30,19 @@ struct HapticMassage: View {
 	var body: some View {
 		VStack{
 			HStack {
-				Slider(value: $speed, in: 10...500){
-					Text("Speed")
+				Slider(value: $speed, in: 5...100){
+					Text(editingParameters ? "\(Int(speed)) Hz": "Speed")
 				}.tint((speed > 75) ? .red : .green )
 				
 				Slider(value: $intensity, in: 0...3){
-					Text("Intensity")
+					Text(editingParameters ? "\(pattern(for: intensity))": "Intensity")
 				}.tint((intensity > 2) ? .red : .green )
 			}
 			.padding()
+			.onHover{_ in
+				editingParameters.toggle()
+			}
+			
 			ZStack{
 				Rectangle().fill(.gray)
 					.onHover{_ in
@@ -46,7 +50,10 @@ struct HapticMassage: View {
 						Timer.scheduledTimer(withTimeInterval: TimeInterval(1/speed), repeats: true){ timer in
 							if hoveringMassage {
 								CGSActuateDeviceWithPattern(cid, 0, Int32(pattern(for: intensity)), 0);
+							} else {
+								timer.invalidate()
 							}
+							
 						}
 					}
 				Text("Place your fingers here to feel the massage").foregroundStyle(.ultraThickMaterial).opacity(hoveringMassage ? 0 : 1)
