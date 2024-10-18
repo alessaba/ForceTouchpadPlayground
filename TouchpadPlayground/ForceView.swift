@@ -24,13 +24,6 @@ struct ForceGauge : View {
 			}.tint((pressure > 0.5) ? .red : .green )
 			
 			Text("\(String(format: "%.2f", pressure*100))%")
-				.onAppear{
-					NSEvent.addLocalMonitorForEvents(matching: .pressure){ event in
-						pressure = event.pressure
-						pressHist.append(Pressure(pressure: pressure, time: pressHist.count))
-						return event
-					}
-				}
 			
 			Chart(pressHist){ elem in
 				AreaMark(x: .value("Time", elem.time), y: .value("Pressure", elem.pressure))
@@ -46,7 +39,14 @@ struct ForceGauge : View {
 					.interpolationMethod(.cardinal)
 					.symbol(.circle)
 			}
-		}.padding()
-		
+		}
+		.padding()
+		.onAppear{
+			NSEvent.addLocalMonitorForEvents(matching: .pressure){ event in
+				pressure = event.pressure
+				pressHist.append(Pressure(pressure: pressure, time: pressHist.count))
+				return event
+			}
+		}
 	}
 }
