@@ -21,9 +21,10 @@ struct ForceGauge : View {
 		VStack{
 			Gauge(value: pressure) {
 				Text("Pressure")
-			}.tint((pressure > 0.75) ? .red : .green )
-			
-			Text("\(String(format: "%.2f", pressure*100))%")
+			} currentValueLabel: {
+				Text("\(String(format: "%.2f", pressure*100))%")
+			}
+			.tint((pressure > 0.75) ? .red : .green )
 			
 			Chart(pressHist){ elem in
 				AreaMark(x: .value("Time", elem.time), y: .value("Pressure", elem.pressure))
@@ -35,9 +36,8 @@ struct ForceGauge : View {
 											Color.accentColor.opacity(0.1)]),
 									   startPoint: .top,
 									   endPoint: .bottom))
-				LineMark(x: .value("Time", elem.time), y: .value("Pressure", elem.pressure))
-					.interpolationMethod(.cardinal)
-					.symbol(.circle)
+						LineMark(x: .value("Time", elem.time), y: .value("Pressure", elem.pressure))
+							.interpolationMethod(.cardinal)
 			}
 		}
 		.padding()
