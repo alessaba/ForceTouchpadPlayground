@@ -19,9 +19,9 @@ struct ForceGauge : View {
 	@State var pressHist : [Pressure] = []
 	var body: some View {
 		VStack{
-			Slider(value: $pressure, in: 0...1){
+			Gauge(value: pressure) {
 				Text("Pressure")
-			}.tint((pressure > 0.5) ? .red : .green )
+			}.tint((pressure > 0.75) ? .red : .green )
 			
 			Text("\(String(format: "%.2f", pressure*100))%")
 			
