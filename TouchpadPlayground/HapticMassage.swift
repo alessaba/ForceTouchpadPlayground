@@ -11,7 +11,7 @@ fileprivate let cid = CGSMainConnectionID()
 
 struct HapticMassage: View {
 	@State var speed = 20.0
-	@State var intensity = 1
+	@State var intensity : Int = 1
 	@State var hoveringMassage: Bool = false
 	
 	var body: some View {
@@ -21,6 +21,9 @@ struct HapticMassage: View {
 					Text("Frequency: \(Int(speed)) Hz")
 				}.tint((speed > 75) ? .red : .green )
 				
+				/*Slider(value: $intensity, in: 0...2, step: 1.0) {
+					Text("Intensity: \(["Low ", "Med ", "High"][intensity])")
+				}.padding(.horizontal)*/
 				Stepper("Intensity: \(["Low ", "Med ", "High"][Int(intensity)])", value: $intensity, in: 0...2)
 			}
 			.padding()
