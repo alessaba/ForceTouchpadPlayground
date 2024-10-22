@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0B0D83332CC11B56005F3514 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B0D83322CC11B56005F3514 /* CoreGraphics.framework */; };
+		0B3D6B032CC81D55005FA37D /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0B3D6B022CC81D55005FA37D /* AudioKit */; };
+		0B3D6B062CC81DD2005FA37D /* AudioKitUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0B3D6B052CC81DD2005FA37D /* AudioKitUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B3D6B032CC81D55005FA37D /* AudioKit in Frameworks */,
+				0B3D6B062CC81DD2005FA37D /* AudioKitUI in Frameworks */,
 				0B0D83332CC11B56005F3514 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,6 +84,8 @@
 			);
 			name = TouchpadPlayground;
 			packageProductDependencies = (
+				0B3D6B022CC81D55005FA37D /* AudioKit */,
+				0B3D6B052CC81DD2005FA37D /* AudioKitUI */,
 			);
 			productName = HapticMassage;
 			productReference = 0B0D831E2CC11273005F3514 /* TouchpadPlayground.app */;
@@ -109,6 +115,10 @@
 			);
 			mainGroup = 0B0D83152CC11273005F3514;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				0B3D6B012CC81D55005FA37D /* XCRemoteSwiftPackageReference "AudioKit" */,
+				0B3D6B042CC81DD2005FA37D /* XCRemoteSwiftPackageReference "AudioKitUI" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0B0D831F2CC11273005F3514 /* Products */;
 			projectDirPath = "";
@@ -342,6 +352,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0B3D6B012CC81D55005FA37D /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.4;
+			};
+		};
+		0B3D6B042CC81DD2005FA37D /* XCRemoteSwiftPackageReference "AudioKitUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKitUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0B3D6B022CC81D55005FA37D /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B3D6B012CC81D55005FA37D /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+		0B3D6B052CC81DD2005FA37D /* AudioKitUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B3D6B042CC81DD2005FA37D /* XCRemoteSwiftPackageReference "AudioKitUI" */;
+			productName = AudioKitUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0B0D83162CC11273005F3514 /* Project object */;
 }
