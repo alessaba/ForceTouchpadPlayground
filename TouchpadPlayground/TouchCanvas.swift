@@ -113,6 +113,11 @@ struct TouchCanvas: View {
 	
 	var body: some View {
 		ZStack {
+			Text("Put fingers on the trackpad to see the relative position.")
+				.opacity(self.touches.isEmpty ? 1 : 0)
+				.animation(.easeOut, value: self.touches.isEmpty)
+			
+				
 			GeometryReader { proxy in
 				TouchesView(touches: self.$touches)
 				
