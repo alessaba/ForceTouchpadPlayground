@@ -17,18 +17,21 @@ struct HapticMassage: View {
 	var body: some View {
 		VStack{
 			HStack {
+				
 				Slider(value: $speed, in: 5...100){
 					Text("Frequency: \(Int(speed)) Hz")
 				}.tint((speed > 75) ? .red : .green )
 				
-				/*Slider(value: $intensity, in: 0...2, step: 1.0) {
-					Text("Intensity: \(["Low ", "Med ", "High"][intensity])")
-				}.padding(.horizontal)*/
 				Stepper("Intensity: \(["Low ", "Med ", "High"][Int(intensity)])", value: $intensity, in: 0...2)
+				
+				/*Slider(value: $intensity, in: 0...2, step: 1.0) {
+				 Text("Intensity: \(["Low ", "Med ", "High"][intensity])")
+				 }.padding(.horizontal)*/
 			}
 			.padding()
 			
 			ZStack{
+				
 				Rectangle().fill(.gray)
 					.onHover{_ in
 						hoveringMassage.toggle()
@@ -39,11 +42,10 @@ struct HapticMassage: View {
 							} else {
 								timer.invalidate()
 							}
-							
 						}
 					}
-				Text("Place your fingers here to feel the massage").foregroundStyle(.ultraThickMaterial).opacity(hoveringMassage ? 0 : 1)
 				
+				Text("Place your fingers here to feel the massage").foregroundStyle(.ultraThickMaterial).opacity(hoveringMassage ? 0 : 1)
 			}
 		}.frame(width: 500, height: 400)
 	}
