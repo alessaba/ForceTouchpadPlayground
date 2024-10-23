@@ -85,7 +85,7 @@ struct HapticTunes : View {
 	
 	var body: some View {
 		VStack{
-			
+			Text(audioFileURL.lastPathComponent)
 			// Uso .id(pickerPresented) per aggiornare la waveform quando cambio file
 			AudioFileWaveform(url: $audioFileURL.wrappedValue).padding(.horizontal).tint(isPlaying ? .blue : .gray).frame(height: 200).id(filePickerPresented)
 			
@@ -93,9 +93,11 @@ struct HapticTunes : View {
 			//Gauge(value: beatDetectionEngine?.player.currentPosition ?? 0, in: 0...1){Text("")} // Posizione traccia
 			
 			Slider(value: $threshold, in: 0.1...1, step: 0.1) {
-				Text("Threshold: \(String(format: "%.2f", threshold))")
+				Text("Threshold: \(Int(threshold*100))%")
 					.tint((threshold > 0.4) ? .orange : .primary)
 			}.padding(.horizontal)
+			
+			Spacer()
 			
 			Button(isPlaying ? "􀜫 Stop" : "􀽎 Play") {
 				if !isPlaying {
@@ -116,13 +118,11 @@ struct HapticTunes : View {
 			.tint(isPlaying ? .red : .green)
 			.buttonStyle(.borderedProminent)
 			
-			Spacer()
-			
 			Button("Custom Audio File...") {
 				filePickerPresented.toggle()
 			}
 			
-		}.padding(25)
+		}.padding()
 		
 		.onAppear {
 			beatEngine = BeatDetectionEngine(fileURL: audioFileURL, threshold: threshold)
