@@ -100,11 +100,16 @@ struct HapticTunes : View {
 			}.padding(.horizontal)
 			
 			Button(isPlaying ? "􀜫 Stop" : "􀽎 Play") {
-				// TODO: Find a way to notice when the file has stopped playing
 				if !isPlaying {
 					beatEngine = BeatDetectionEngine(fileURL: audioFileURL, threshold: threshold)
 					beatEngine!.start()
 					isPlaying = true
+					
+					Timer.scheduledTimer(withTimeInterval: beatEngine!.player.duration, repeats: false){ timer in
+						beatEngine!.stop()
+						isPlaying = false
+						timer.invalidate()
+					}
 				} else {
 					beatEngine!.stop()
 					isPlaying = false
