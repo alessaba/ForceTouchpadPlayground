@@ -86,13 +86,11 @@ struct HapticTunes : View {
 	var body: some View {
 		VStack{
 			
-			HStack{
-				// TODO: Find a way to update the waveform when the file changes
-				AudioFileWaveform(url: $audioFileURL.wrappedValue).padding(.horizontal).tint(isPlaying ? .blue : .gray).frame(height: 200)
-				Gauge(value: threshold, in: 0...1){Text("")}.rotationEffect(.degrees(-90)).frame(width: 100)
-			}.padding()
+			// Uso .id(pickerPresented) per aggiornare la waveform quando cambio file
+			AudioFileWaveform(url: $audioFileURL.wrappedValue).padding(.horizontal).tint(isPlaying ? .blue : .gray).frame(height: 200).id(filePickerPresented)
 			
-			//Gauge(value: beatDetectionEngine?.player.currentPosition ?? 0, in: 0...1){Text("")}
+			//Gauge(value: threshold, in: 0...1){Text("")}.rotationEffect(.degrees(-90)).frame(width: 100) // Rappresentazione Threshold
+			//Gauge(value: beatDetectionEngine?.player.currentPosition ?? 0, in: 0...1){Text("")} // Posizione traccia
 			
 			Slider(value: $threshold, in: 0.1...1, step: 0.1) {
 				Text("Threshold: \(String(format: "%.2f", threshold))")
