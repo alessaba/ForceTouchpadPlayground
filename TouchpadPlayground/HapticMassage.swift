@@ -9,30 +9,45 @@ import SwiftUI
 
 fileprivate let cid = CGSMainConnectionID()
 
+func colorforIntensity(_ intensity: Int) -> Color {
+	switch intensity {
+		case 0: return .green  			// Low
+		case 1: return .orange 			// Medium
+		case 2: return .red	   			// High
+		default: return .accentColor 	// Fallback
+	}
+	
+	//return [.green, .orange, .red][intensity] // We have no fallback this way and less comprehensible, but it's more compact. Not ideal
+}
+
 struct HapticMassage: View {
 	@State var speed = 20.0
-	@State var intensity : Int = 1
+	@State var intensity : Int = 0
 	@State var hoveringMassage: Bool = false
 	
 	var body: some View {
 		VStack{
 			HStack {
+				Text("Intensity: ")
+				Stepper("\(["Low  ", "Med ", "High"][Int(intensity)])", value: $intensity, in: 0...2)
+					.padding(.vertical, 3)
+					.padding(.horizontal, 10)
+					.background(colorforIntensity(intensity).opacity(0.65))
+					.clipShape(.capsule(style: .circular))
+				
+				Spacer()
 				
 				Slider(value: $speed, in: 5...100){
-					Text("Frequency: \(Int(speed)) Hz")
-				}.tint((speed > 75) ? .red : .green )
+					Text("\(Int(speed)) Hz").bold()
+				}
+				.tint((speed > 75) ? .orange : .green )
+				.frame(width: 300)
 				
-				Stepper("Intensity: \(["Low ", "Med ", "High"][Int(intensity)])", value: $intensity, in: 0...2)
-				
-				/*Slider(value: $intensity, in: 0...2, step: 1.0) {
-				 Text("Intensity: \(["Low ", "Med ", "High"][intensity])")
-				 }.padding(.horizontal)*/
 			}
 			.padding()
 			
 			ZStack{
-				
-				Rectangle().fill(.gray)
+				Rectangle().fill(Color.gray.opacity(0.2))
 					.onHover{_ in
 						hoveringMassage.toggle()
 						Timer.scheduledTimer(withTimeInterval: TimeInterval(1/speed), repeats: true){ timer in
@@ -45,8 +60,8 @@ struct HapticMassage: View {
 						}
 					}
 				
-				Text("Place your fingers here to feel the massage").foregroundStyle(.ultraThickMaterial).opacity(hoveringMassage ? 0 : 1)
+				Text("Place your fingers here to feel the massage").foregroundStyle(.secondary).opacity(hoveringMassage ? 0 : 1)
 			}
-		}.frame(width: 500, height: 400)
+		}
 	}
 }
