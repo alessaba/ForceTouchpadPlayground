@@ -7,11 +7,14 @@
 
 import SwiftUI
 
+// TODO: Add paywall, as an exercise
+// TODO: Add Welcome screen, as an exercise
+
 @main
 struct TouchpadPlayground: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-		}.windowResizability(.contentSize)
+            ContentView().frame(width: 750, height: 450)
+		}
     }
 }

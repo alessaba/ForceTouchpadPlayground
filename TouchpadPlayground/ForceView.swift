@@ -19,6 +19,7 @@ struct ForceGauge : View {
 	@State var pressHist : [Pressure] = []
 	@State var deepPress : Bool = false
 	@State var avgPressure: Float = 0.0
+	
 	var body: some View {
 		VStack{
 			Gauge(value: pressure) {
@@ -41,14 +42,15 @@ struct ForceGauge : View {
 					.interpolationMethod(.cardinal)
 					.foregroundStyle(
 						LinearGradient(gradient:
-										Gradient(colors: [
-											Color.accentColor.opacity(0.8),
-											Color.accentColor.opacity(0.1)]),
+										Gradient(colors: [.accentColor.opacity(0.8), .accentColor.opacity(0.1)]),
 									   startPoint: .top,
-									   endPoint: .bottom))
+									   endPoint: .bottom)
+					)
+				
 				LineMark(x: .value("Time", elem.time), y: .value("Pressure", elem.pressure))
 					.interpolationMethod(.cardinal)
-			}
+				
+			}.chartLegend(.hidden)
 		}
 		.padding()
 		.onAppear{
@@ -79,6 +81,7 @@ struct ForceGauge : View {
 	}
 }
 
+// Experimenting on how to recognize when the user deep presses to 
 func riconosciTransizione(hist: [Float], soglia: Float) -> Bool {
 	let lenArray = hist.count
 	if lenArray < 10 { return false }
