@@ -36,29 +36,17 @@ final class AppKitTouchesView: NSView {
 		delegate?.touchesView(self, didUpdateTouchingTouches: touches)
 	}
 	
-	override func touchesBegan(with event: NSEvent) {
-		handleTouches(with: event)
-	}
+	override func touchesBegan(with event: NSEvent) {handleTouches(with: event)}
+	override func touchesMoved(with event: NSEvent) {handleTouches(with: event)}
+	override func touchesEnded(with event: NSEvent) {handleTouches(with: event)}
+	override func touchesCancelled(with event: NSEvent) {handleTouches(with: event)}
 	
-	override func touchesEnded(with event: NSEvent) {
-		handleTouches(with: event)
-	}
-	
-	override func touchesMoved(with event: NSEvent) {
-		handleTouches(with: event)
-	}
-	
-	override func touchesCancelled(with event: NSEvent) {
-		handleTouches(with: event)
-	}
 }
 
 struct TouchesView: NSViewRepresentable {
-	// Up to date list of touching touches.
 	@Binding var touches: [Touch]
 	
-	func updateNSView(_ nsView: AppKitTouchesView, context: Context) {
-	}
+	func updateNSView(_ nsView: AppKitTouchesView, context: Context) {}
 	
 	func makeNSView(context: Context) -> AppKitTouchesView {
 		let view = AppKitTouchesView()
@@ -97,7 +85,7 @@ struct Touch: Identifiable {
 		self.id = nsTouch.hash
 		self.normalizedX = nsTouch.normalizedPosition.x
 		self.normalizedY = 1.0 - nsTouch.normalizedPosition.y
-		self.type = nsTouch.phase.rawValue
+		self.type = nsTouch.phase
 	}
 }
 
@@ -124,7 +112,7 @@ struct TouchCanvas: View {
 				ForEach(self.touches) { touch in
 					//let indiceTocco = self.touches.firstIndex(where: { $0.id == touch.id })!
 					Circle()
-						.foregroundColor(.accentColor) //(touch.type > 3) ? touchColors[indiceTocco] : .white)
+						.foregroundColor((touch.type == .began) ? touchColors[indiceTocco] : .accentColor)
 						.opacity(0.8)
 						.frame(width: self.touchViewSize, height: self.touchViewSize)
 						.offset(
